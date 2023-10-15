@@ -85,7 +85,8 @@ def search_company():
             # Display company info
             st.markdown("---")
             st.markdown(f"### **{stock_info['longName']}**")
-            st.markdown(f"Industry: {stock_info['industry']} / Sector: {stock_info['sectorDisp']} / Website: {stock_info['website']}")
+            # st.markdown(f"Industry: {stock_info['industry']} / Sector: {stock_info['sectorDisp']} / Website: {stock_info['website']}")
+            st.markdown(f"Industry: {stock_info['industry']} / Website: {stock_info['website']}")
             st.markdown(f"Description: {stock_info['longBusinessSummary']}")
 
         else:

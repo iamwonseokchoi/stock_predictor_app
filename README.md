@@ -1,5 +1,8 @@
 # Generating NASDAQ Alpha App
 ## Overview
+### Light Version
+**Serving from:** https://nasdaq-alpha.streamlit.app/
+
 Personal project which utilizes public APIs and libraries for ad-hoc data engineering, mixed in with data science tools and Optuna hyperparameter optimization to predict the next trading day close price of NASDAQ stocks. 
 
 Is designed to be standalone for now, with no dedicated backend server or DB (Might add in the future) so isn't optimal for performance but still works lightweight and in-memory (handles caches for heavier runs).
@@ -53,6 +56,12 @@ After you set up your FED API Key, you can just run streamlit after installing t
 
 # Will defualt serve on http://localhost:8501
 ~$ streamlit run main.py
+```
+For arm64, uncomment the following two lines in `requirements.txt` and comment out `tensorflow`
+```
+# tensorflow-macos==2.14.0
+# tensorflow-metal==1.1.0
+
 ```
 
 ## Technologies Used

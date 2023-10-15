@@ -135,7 +135,7 @@ def auto_xgb():
             st.markdown("---")
     
         df = fetch_ml_dataframe(search_term)
-        n_trials = st.number_input('Enter number of Optuna trials', min_value=1, max_value=50, value=10)
+        n_trials = st.number_input('Enter number of Optuna trials', min_value=1, max_value=5, value=5)
         if st.button("Run Auto XGBoost"):
             with st.spinner(f"Training XGBoost model..."):
                 xgb_pred, xgb_forecast_set, xgb_mean, error_xgb, y_test, predicted_stock_price = optimize_and_execute_xgboost(ticker=search_term, df=df, n_trials=n_trials)

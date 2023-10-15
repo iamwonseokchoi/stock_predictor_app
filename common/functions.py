@@ -2,6 +2,7 @@ import os
 import sys
 import requests
 import warnings
+import streamlit as st
 import pandas as pd
 import datetime as dt
 import yfinance as yf
@@ -16,7 +17,10 @@ from ta.momentum import RSIIndicator, StochasticOscillator, WilliamsRIndicator, 
 
 
 ########## LOGGING ##########
-log_path = config('LOG_PATH', default='./logs/sys_logs.log')
+try: 
+    log_path = config('LOG_PATH', default='./logs/sys_logs.log')
+except Exception:
+    log_path = st.secrets["LOG_PATH"]
 log_dir = os.path.dirname(log_path)
 
 if log_dir and not os.path.exists(log_dir):
@@ -32,7 +36,10 @@ logger.add(sys.stderr, colorize=True,
 
 ########## DATA ENGINEERING ##########
 def fetch_fred_data():
-    api_key = config('FRED_API_KEY')
+    try: 
+        api_key = config('FRED_API_KEY')
+    except Exception:
+        api_key = st.secrets["FRED_API_KEY"]
     BASE_URL = "https://api.stlouisfed.org/fred/series/observations"
     SERIES_IDS = [
         'DTB3',      # 3-Month Treasury Bill

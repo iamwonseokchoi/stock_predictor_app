@@ -109,6 +109,7 @@ def objective_xgb(trial, df):
 #     return xgb_pred, xgb_forecast_set, mean_forecast, error_xgb
 
 def optimize_and_execute_xgboost(ticker, df, n_trials):
+    total_cores = multiprocessing.cpu_count()
     # Create a study object and specify the direction is 'minimize'.
     study = optuna.create_study(direction='minimize')
 
@@ -120,7 +121,7 @@ def optimize_and_execute_xgboost(ticker, df, n_trials):
         st_progress_bar.progress((trial.number + 1) / n_trials)
 
     # Optimize the study, the objective function is passed in as the first argument.
-    study.optimize(lambda trial: objective_xgb(trial, df), n_trials=n_trials, callbacks=[update_progress_bar], gc_after_trial=True, n_jobs=1)
+    study.optimize(lambda trial: objective_xgb(trial, df), n_trials=n_trials, callbacks=[update_progress_bar], gc_after_trial=True, n_jobs=(total_cores-2))
 
     st_container.empty()
     

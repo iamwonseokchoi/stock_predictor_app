@@ -1,9 +1,11 @@
-# Generating NASDAQ Alpha App
+# Generating NASDAQ Alpha App (Stock Prediction using Machine Learning)
 ## Overview
-### Light Version
-**Serving from:** https://nasdaq-alpha.streamlit.app/
 
-Personal project which utilizes public APIs and libraries for ad-hoc data engineering, mixed in with data science tools and Optuna hyperparameter optimization to predict the next trading day close price of NASDAQ stocks. 
+**Lite Version Serving on Streamlit-Community Cloud:** https://nasdaq-alpha.streamlit.app/
+- Limited number of Optuna trials & no auto-refresh 
+- You can clear cache on the top left using the streamlit menu if need be
+---
+Personal mini-project which utilizes public APIs and libraries for ad-hoc data engineering, mixed in with data science tools and Optuna hyperparameter optimization to predict the next trading day close price of NASDAQ stocks. 
 
 Is designed to be standalone for now, with no dedicated backend server or DB (Might add in the future) so isn't optimal for performance but still works lightweight and in-memory (handles caches for heavier runs).
 

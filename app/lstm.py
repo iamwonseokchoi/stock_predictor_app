@@ -142,7 +142,7 @@ def auto_lstm():
             st.markdown("---")
     
         df = fetch_ml_dataframe(search_term)
-        n_trials = st.number_input('Enter number of Optuna trials', min_value=1, max_value=100, value=10)
+        n_trials = st.number_input('Enter number of Optuna trials', min_value=1, max_value=10, value=5)
         if st.button('Run Auto LSTM'):
             with st.spinner(f"Finding best hyperparameters within {n_trials} Trials..."):
                 lstm_pred, lstm_forecast_set, mean_forecast, error_lstm, real_stock_price, predicted_stock_price = optimize_and_execute_lstm(ticker=search_term, df=df, n_trials=n_trials)

@@ -58,8 +58,8 @@ def predict_lstm():
         st.line_chart(df['Close'])
 
         # LSTM Parameters for Optuna Study
-        epochs = st.slider("Select Number of Epochs", 25, 500, 200)
-        batch_size = st.slider("Select Batch Size", 20, 512, 32)
+        epochs = st.slider("Select Number of Epochs", 5, 50, 10)
+        batch_size = st.slider("Select Batch Size", 20, 100, 32)
         unit_number = st.slider("Select Number of Units", 50, 200, 100)
         dropout_rate = st.slider("Select Dropout Rate", 0.1, 0.5, 0.2)
         lr_factor = st.slider("Select Learning Rate Reduction Factor", 0.1, 0.9, 0.5)
